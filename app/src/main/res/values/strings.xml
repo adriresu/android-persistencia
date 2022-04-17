@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Tarea3_ProgramacionMultimedia</string>
+    <string name="enviar_sms">Enviar SMS</string>
 </resources>
