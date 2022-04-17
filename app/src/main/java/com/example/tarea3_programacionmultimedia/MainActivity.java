@@ -1,5 +1,6 @@
 package com.example.tarea3_programacionmultimedia;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -22,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // establecemos el título de la barra superior
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Tarea Grupal");
+
         Llamada = findViewById(R.id.BtnLlamada);
         Sms = findViewById(R.id.BtnSms);
         Mail = findViewById(R.id.BtnMail);
