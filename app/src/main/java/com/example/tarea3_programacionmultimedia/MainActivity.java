@@ -36,5 +36,20 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, SmsActivity.class);
             startActivity(intent);
         });
+
+        Llamada.setOnClickListener(view -> {
+            Intent intent = new Intent(this, CallActivity.class);
+            startActivity(intent);
+        });
+
+        Mail.setOnClickListener(view -> {
+            Intent intent = new Intent(this, MailActivity.class);
+            startActivity(intent);
+        });
+
+        Ajustes.setOnClickListener(view -> {
+            Intent intent = new Intent(this, PreferencesActivity.class);
+            startActivity(intent);
+        });
     }
 }
