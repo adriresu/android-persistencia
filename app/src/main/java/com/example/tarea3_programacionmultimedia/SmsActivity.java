@@ -87,14 +87,18 @@ public class SmsActivity extends AppCompatActivity {
 
 
         btnSend.setOnClickListener(view -> {
-            Intent intent  = new Intent(getApplicationContext(), SmsActivity.class);
+            Intent intent  = new Intent(getApplicationContext(), MainActivity.class);
             PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
 
             SmsManager smsManager = SmsManager.getDefault();
 
             Localizacion = Localizador.getLastKnownLocation(LocationManager.FUSED_PROVIDER);
-            smsManager.sendTextMessage(txtTelefono.getText().toString(), null, "Ubicación del usuario: Longitud: " + String.valueOf(Localizacion.getLongitude()) + ", Latitud: " + String.valueOf(Localizacion.getLatitude()) + ", Altitud: " + String.valueOf(Localizacion.getAltitude()), pi, null);
-            Toast.makeText(this, "Mensaje enviado correctamente", Toast.LENGTH_SHORT).show();
+            try {
+                smsManager.sendTextMessage(txtTelefono.getText().toString(), null, "Ubicación del usuario: Longitud: " + String.valueOf(Localizacion.getLongitude()) + ", Latitud: " + String.valueOf(Localizacion.getLatitude()) + ", Altitud: " + String.valueOf(Localizacion.getAltitude()), pi, null);
+                Toast.makeText(this, "Mensaje enviado correctamente", Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                Toast.makeText(this, "Error al enviar el mensaje", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }
