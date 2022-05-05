@@ -2,6 +2,7 @@ package com.example.tarea3_programacionmultimedia;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.content.Context;
@@ -31,12 +32,15 @@ import java.io.IOException;
 public class camara extends AppCompatActivity {
     private static final int MY_CAMERA_REQUEST_CODE = 100;
     Bitmap imagenMalandrin;
+    ImageView imageView2;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camara);
+
+        imageView2 = (ImageView) findViewById(R.id.imageView2);
 
         //Sacar Foto
         Button botonFoto = (Button) findViewById(R.id.button);
@@ -57,6 +61,7 @@ public class camara extends AppCompatActivity {
         Button botonEnviar = (Button) findViewById(R.id.button2);
         botonEnviar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                     if (!Environment.isExternalStorageManager()) {
                         Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
@@ -65,20 +70,21 @@ public class camara extends AppCompatActivity {
                         startActivity(intent);
                     }
                 }
+
                 //Creamos el correo y lo asignamos
                 EditText correo = (EditText) findViewById(R.id.editTextTextEmailAddress);
                 String[] TO = {correo.getText().toString()};
 
                 //Pasamos valores al intent
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-
-                emailIntent.setType("image/jpg");
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{correo.getText().toString()});
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "AUXILIO");
                 emailIntent.putExtra(Intent.EXTRA_TEXT, "Esta persona me esta atacando, por favor ayuda");
-                File f = new File(String.valueOf(loadImageFromStorage(saveToInternalStorage(imagenMalandrin))));
-                emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(f));
-                emailIntent.setType("image/jpg");
+                File savedImage = saveToExternalStorage(imagenMalandrin);
+                //File f = new File(String.valueOf(loadImageFromStorage(saveToInternalStorage(imagenMalandrin))));
+                Uri imageUri = FileProvider.getUriForFile(camara.this, "com.example.tarea3_programacionmultimedia.provider", savedImage);
+                emailIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+                emailIntent.setType("image/png");
 
                 try {
                     startActivity(Intent.createChooser(emailIntent,"Share you on the jobing"));
@@ -92,16 +98,29 @@ public class camara extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == MY_CAMERA_REQUEST_CODE) {
             imagenMalandrin = (Bitmap) data.getExtras().get("data");
-            ImageView imageview = (ImageView) findViewById(R.id.imageView2); //sets imageview as the bitmap
+            imageView2.setImageBitmap(imagenMalandrin);
 
         }
     }
+
+    private File saveToExternalStorage(Bitmap image) {
+        File extStorFile = getExternalFilesDir(null);
+        File malandrinFile = new File(extStorFile, "malandrin.png");
+        try (FileOutputStream out = new FileOutputStream(malandrinFile)){
+            imagenMalandrin.compress(Bitmap.CompressFormat.PNG, 100, out);
+        }
+        catch (Exception e) {
+            Toast.makeText(this, "mal", Toast.LENGTH_SHORT).show();
+        }
+        return malandrinFile;
+    }
+
     private String saveToInternalStorage(Bitmap bitmapImage){
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
         // path to /data/data/yourapp/app_data/imageDir
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
         // Create imageDir
-        File mypath = new File(directory,"malandrin.jpg");
+        File mypath = new File(directory,"malandrin.png");
 
         try (FileOutputStream out = new FileOutputStream(mypath)) {
         imagenMalandrin.compress(Bitmap.CompressFormat.PNG, 100, out);
@@ -128,16 +147,7 @@ public class camara extends AppCompatActivity {
 
     private File loadImageFromStorage(String path)
     {
-        File f = new File(path, "malandrin.jpg");
-        try {
-            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
-            ImageView img=(ImageView)findViewById(R.id.imageView2);
-            img.setImageBitmap(b);
-        }
-        catch (FileNotFoundException e)
-        {
-            e.printStackTrace();
-        }
+        File f = new File(path, "malandrin.png");
 
         return f;
 
