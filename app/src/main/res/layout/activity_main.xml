@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="5dp"
         android:orientation="horizontal">
         <Button
             android:id="@+id/BtnLlamada"
@@ -32,6 +32,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
         <Button
@@ -47,5 +48,16 @@
             android:layout_height="wrap_content"
             android:text="SMS"
             />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnEnviarWhatsapp"
+            android:text="Enviar localización actual por WhatsApp" />
     </LinearLayout>
 </LinearLayout>

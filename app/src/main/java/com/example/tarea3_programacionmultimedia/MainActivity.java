@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -18,7 +19,7 @@ import java.io.OutputStreamWriter;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button Llamada, Sms, Mail, Ajustes;
+    Button Llamada, Sms, Mail, Ajustes, Whatsappp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         Sms = findViewById(R.id.BtnSms);
         Mail = findViewById(R.id.BtnMail);
         Ajustes = findViewById(R.id.BtnAjustes);
+        Whatsappp = findViewById(R.id.btnEnviarWhatsapp);
 
         Sms.setOnClickListener(view -> {
             Intent intent = new Intent(this, SmsActivity.class);
@@ -49,6 +51,21 @@ public class MainActivity extends AppCompatActivity {
 
         Ajustes.setOnClickListener(view -> {
             Intent intent = new Intent(this, PreferencesActivity.class);
+            startActivity(intent);
+        });
+
+        Whatsappp.setOnClickListener(view -> {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.setPackage("com.whatsapp");
+            intent.putExtra(Intent.EXTRA_TEXT, "Estoy en peligro! Encuéntrame en esta localización");
+
+            if (intent.resolveActivity(getPackageManager()) == null) {
+                // Whatsapp no está instalado
+                Toast.makeText(this, "Whatsapp no está instalado en el dispositivo", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             startActivity(intent);
         });
     }
