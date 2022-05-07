@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
@@ -18,7 +19,7 @@ import android.widget.TextView;
 
 public class SmsActivity extends AppCompatActivity {
 
-    TextView Telefono;
+    String Telefono;
     TextView Latitud, Longitud;
     Location Localizacion;
     LocationManager Localizador;
@@ -34,6 +35,8 @@ public class SmsActivity extends AppCompatActivity {
         else{
             SetSMS();
         }
+        SharedPreferences Prefs = getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
+        Telefono = String.valueOf(Prefs.getInt("Telf", 1));
         Latitud = findViewById(R.id.TextLatitud);
         Latitud = findViewById(R.id.TextLongitud);
         SendSMS = findViewById(R.id.ButtonSend);
@@ -45,7 +48,6 @@ public class SmsActivity extends AppCompatActivity {
     }
 
     public void SetSMS() {
-        Telefono.setText(String.valueOf(669665754));
         Localizador = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         final boolean IsGpsActivated = Localizador.isProviderEnabled(LocationManager.GPS_PROVIDER);
         if(!IsGpsActivated){
