@@ -79,7 +79,7 @@ public class camara extends AppCompatActivity {
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{correo.getText().toString()});
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "AUXILIO");
-                emailIntent.putExtra(Intent.EXTRA_TEXT, "Esta persona me esta atacando, por favor ayuda");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Esta persona me esta atacando, por favor ayuda, vengan cuanto antes");
                 File savedImage = saveToExternalStorage(imagenMalandrin);
                 //File f = new File(String.valueOf(loadImageFromStorage(saveToInternalStorage(imagenMalandrin))));
                 Uri imageUri = FileProvider.getUriForFile(camara.this, "com.example.tarea3_programacionmultimedia.provider", savedImage);

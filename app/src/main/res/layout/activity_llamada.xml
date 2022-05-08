@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo"
     android:orientation="vertical"
     tools:context=".llamada">
 
@@ -11,21 +12,36 @@
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/baloo_bhaijaan"
+        android:text="Numero de Telefono"
         android:textAlignment="center"
-        android:textSize="34sp" />
+        android:textSize="48sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="181dp"
+        tools:layout_editor_absoluteY="72dp" />
 
     <EditText
         android:id="@+id/editTextPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:ems="10"
-        android:inputType="phone" />
+        android:fontFamily="@font/alfa_slab_one"
+        android:inputType="phone"
+        android:text="654289897"
+        android:textAlignment="center"
+        android:textSize="34sp" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="800px"
-        android:layout_height="800px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
         android:contentDescription="TODO"
         app:srcCompat="@drawable/emergencycall2" />
 
