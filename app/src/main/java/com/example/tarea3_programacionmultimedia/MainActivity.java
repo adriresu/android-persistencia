@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Ajustes = findViewById(R.id.BtnAjustes);
         Whatsappp = findViewById(R.id.btnEnviarWhatsapp);
 
+
         Sms.setOnClickListener(view -> {
             Intent intent = new Intent(this, SmsActivity.class);
             startActivity(intent);
