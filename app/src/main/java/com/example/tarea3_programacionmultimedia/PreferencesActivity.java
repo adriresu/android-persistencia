@@ -21,16 +21,20 @@ public class PreferencesActivity extends AppCompatActivity {
         NumTelf = findViewById(R.id.PrefPhone);
         NumMens = findViewById(R.id.PrefMensajes);
         Mail = findViewById(R.id.PrefMail);
+        SharedPreferences Prefs = getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
+        Pass.setText(Prefs.getString("Pass", ""));
+        NumTelf.setText(Prefs.getString("Telf", ""));
+        NumMens.setText(Prefs.getString("Sms", ""));
+        Mail.setText(Prefs.getString("Mail", ""));
 
         Save = findViewById(R.id.SavePrefs);
         Save.setOnClickListener(view -> {
             try{
-                SharedPreferences Prefs = getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
                 SharedPreferences.Editor EditarPrefs = Prefs.edit();
-                EditarPrefs.putInt("Pass", Integer.parseInt(Pass.getText().toString()));
-                EditarPrefs.putInt("Telf", Integer.parseInt(Pass.getText().toString()));
-                EditarPrefs.putInt("Sms", Integer.parseInt(Pass.getText().toString()));
-                EditarPrefs.putString("Pass", Mail.getText().toString());
+                EditarPrefs.putString("Pass", Pass.getText().toString());
+                EditarPrefs.putString("Telf", NumTelf.getText().toString());
+                EditarPrefs.putString("Sms", NumMens.getText().toString());
+                EditarPrefs.putString("Mail", Mail.getText().toString());
                 EditarPrefs.apply();
                 Toast.makeText(this, "Preferencias guardadas correctamente.", Toast.LENGTH_SHORT).show();
             }

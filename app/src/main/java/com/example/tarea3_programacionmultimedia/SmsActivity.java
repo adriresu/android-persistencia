@@ -61,7 +61,7 @@ public class SmsActivity extends AppCompatActivity {
         }
 
         SharedPreferences Prefs = getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
-        Telefono = String.valueOf(Prefs.getInt("Telf", 1));
+        Telefono = String.valueOf(Prefs.getString("Sms", ""));
         Latitud = findViewById(R.id.TextLatitud);
         Longitud = findViewById(R.id.TextLongitud);
         SendSMS = findViewById(R.id.ButtonSend);
