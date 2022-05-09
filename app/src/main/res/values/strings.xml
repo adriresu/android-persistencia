@@ -15,5 +15,6 @@
     <string name="correo">Correo</string>
     <string name="guardar_cambios">Guardar Cambios</string>
     <string name="tel_fono_mensajes">Teléfono Mensajes</string>
+    <string name="obtener_localizaci_n">Obtener Localización</string>
     <color name="orange">#F29100</color>
 </resources>

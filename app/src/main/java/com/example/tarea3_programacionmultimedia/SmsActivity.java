@@ -57,7 +57,7 @@ public class SmsActivity extends AppCompatActivity {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(this, "No tienes los permisos necesarios", Toast.LENGTH_SHORT).show();
-            return;
+            finish();
         }
 
         SharedPreferences Prefs = getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
@@ -94,5 +94,7 @@ public class SmsActivity extends AppCompatActivity {
                 Toast.makeText(this, "Error al enviar el mensaje", Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }
 }
