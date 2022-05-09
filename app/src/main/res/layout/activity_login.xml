@@ -24,7 +24,7 @@
 
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/Usuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo_bhaijaan"
@@ -47,7 +47,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="juan"
+            android:text="resua"
             android:textAlignment="center"
             tools:layout_editor_absoluteX="86dp"
             tools:layout_editor_absoluteY="169dp" />
@@ -73,9 +73,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword"
+            android:inputType="number"
             android:minHeight="48dp"
-            android:text="2342342344"
+            android:text="84954342"
             android:textAlignment="center"
             tools:layout_editor_absoluteX="87dp"
             tools:layout_editor_absoluteY="273dp" />

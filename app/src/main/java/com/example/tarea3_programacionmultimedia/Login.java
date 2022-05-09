@@ -36,6 +36,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        SharedPreferences Prefs = getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
@@ -48,13 +49,25 @@ public class Login extends AppCompatActivity {
 
         botonLogin.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                SharedPreferences preferencias = getSharedPreferences("Preferencias", Modo.equals("privado") ? Context.MODE_PRIVATE : Context.MODE_WORLD_WRITEABLE);
-                String password = preferencias.getString(txtUser.getText().toString(), "");
-                String password2 = txtPass.getText().toString();
-                if (password.equals(password2) ){
-                    Toast.makeText(Login.this, "Correcto, Iniciando Sesion", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Login.this, MainActivity.class);
-                    startActivity(intent);
+                SharedPreferences Prefs = getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
+                SharedPreferences.Editor EditarPrefs = Prefs.edit();
+
+                //Prefs.getString("Pass", "");
+                String passwordCheck = Prefs.getString("Pass", "");
+                String userCheck = Prefs.getString("User", "");
+                String passwordInput = txtPass.getText().toString();
+                String userInput = txtUser.getText().toString();
+
+
+                if (userCheck == userInput) {
+
+                    if (passwordCheck.equals(passwordInput)) {
+                        Toast.makeText(Login.this, "Correcto, Iniciando Sesion", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Login.this, MainActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(Login.this, "Credenciales Incorrectas", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -65,17 +78,13 @@ public class Login extends AppCompatActivity {
                 Boolean flag = true;
                 if ( txtUser.getText().toString().length() == 0 || txtPass.getText().toString().length() == 0){
                     flag = false;
-                    errores.add("Complete con el nombre de usuario y contraseña");
+                    Toast.makeText(Login.this, "Complete con el nombre de usuario y contraseña", Toast.LENGTH_SHORT).show();
                 }
                 if ( txtPass.getText().toString() == null || txtPass.getText().toString() == ""){
                     flag = false;
                 }
-                if (txtPass.getText().toString().length() < 8){
-                    errores.add("La contraseña debe de ser de 3 caracteres o mas");
-                    flag = false;
-                }
                 if (txtUser.getText().toString().length() < 3){
-                    errores.add("El nombre de usuario debe de ser de 3 caracteres o mas");
+                    Toast.makeText(Login.this, "El nombre de usuario debe de ser de 3 caracteres o mas", Toast.LENGTH_SHORT).show();
                     flag = false;
                 }
 
@@ -84,15 +93,13 @@ public class Login extends AppCompatActivity {
                     Modo = "privado";
                     SharedPreferences preferencias = getSharedPreferences("Preferencias", Modo.equals("privado") ? Context.MODE_PRIVATE : Context.MODE_WORLD_WRITEABLE);
                     SharedPreferences.Editor editor = preferencias.edit();
-                    editor.putString(txtUser.getText().toString(), txtPass.getText().toString());
+                    editor.putString("User", txtUser.getText().toString());
+                    editor.putString("Pass", txtUser.getText().toString());
                     editor.apply();
                     Toast.makeText(Login.this, "REGISTRADO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    for(String e : errores){
-                        TextView txtErrores = (TextView) findViewById(R.id.textView3);
-                        txtErrores.setText(txtErrores.getText() + "\n" + e);
-                    }
+
                 }
             }
         });
