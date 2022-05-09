@@ -9,6 +9,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -43,6 +44,16 @@ public class camara extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+
+        try {
+            SharedPreferences Prefs = getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
+            String mailCheck = Prefs.getString("Mail", "");
+            EditText correoo = findViewById(R.id.editTextTextEmailAddress);
+            correoo.setText(mailCheck);
+
+        }catch (Exception ex){
+
+        }
 
         imageView2 = (ImageView) findViewById(R.id.imageView2);
 

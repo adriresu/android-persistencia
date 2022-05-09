@@ -59,7 +59,7 @@ public class Login extends AppCompatActivity {
                 String userInput = txtUser.getText().toString();
 
 
-                if (userCheck == userInput) {
+                if (userCheck.equals(userInput)) {
 
                     if (passwordCheck.equals(passwordInput)) {
                         Toast.makeText(Login.this, "Correcto, Iniciando Sesion", Toast.LENGTH_SHORT).show();
@@ -74,7 +74,6 @@ public class Login extends AppCompatActivity {
 
         botonRegister.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                ArrayList<String> errores = new ArrayList<String>();
                 Boolean flag = true;
                 if ( txtUser.getText().toString().length() == 0 || txtPass.getText().toString().length() == 0){
                     flag = false;
@@ -91,10 +90,10 @@ public class Login extends AppCompatActivity {
 
                 if (flag){
                     Modo = "privado";
-                    SharedPreferences preferencias = getSharedPreferences("Preferencias", Modo.equals("privado") ? Context.MODE_PRIVATE : Context.MODE_WORLD_WRITEABLE);
-                    SharedPreferences.Editor editor = preferencias.edit();
+                    SharedPreferences Prefs = getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = Prefs.edit();
                     editor.putString("User", txtUser.getText().toString());
-                    editor.putString("Pass", txtUser.getText().toString());
+                    editor.putString("Pass", txtPass.getText().toString());
                     editor.apply();
                     Toast.makeText(Login.this, "REGISTRADO CORRECTAMENTE", Toast.LENGTH_SHORT).show();
                 }

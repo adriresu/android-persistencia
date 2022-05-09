@@ -6,7 +6,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -28,6 +30,18 @@ public class llamada extends AppCompatActivity {
         actionBar.hide();
 
         ImageView llamada = (ImageView) findViewById(R.id.imageView);
+
+        try {
+            SharedPreferences Prefs = getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
+            String numTe = Prefs.getString("Telf", "");
+            EditText Telf = (EditText) findViewById(R.id.editTextPhone);
+            Telf.setText(numTe);
+        }catch (Exception eax){
+
+        }
+
+
+
         llamada.setOnClickListener(new View.OnClickListener() {
             EditText numTelf = (EditText) findViewById(R.id.editTextPhone);
 
