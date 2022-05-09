@@ -1,5 +1,6 @@
 package com.example.tarea3_programacionmultimedia;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -22,6 +23,9 @@ public class llamada extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_llamada);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         ImageView llamada = (ImageView) findViewById(R.id.imageView);
         llamada.setOnClickListener(new View.OnClickListener() {

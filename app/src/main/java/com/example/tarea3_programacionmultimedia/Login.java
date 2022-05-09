@@ -1,5 +1,6 @@
 package com.example.tarea3_programacionmultimedia;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -36,10 +37,14 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+
         Button botonLogin = (Button) findViewById(R.id.btnLogin);
         Button botonRegister = (Button) findViewById(R.id.btnRegister);
         EditText txtUser = (EditText) findViewById(R.id.editTextTextPersonName);
         EditText txtPass = (EditText) findViewById(R.id.editTextTextPersonName2);
+
 
         botonLogin.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {

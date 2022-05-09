@@ -1,6 +1,7 @@
 package com.example.tarea3_programacionmultimedia;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
@@ -39,6 +40,9 @@ public class camara extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camara);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         imageView2 = (ImageView) findViewById(R.id.imageView2);
 

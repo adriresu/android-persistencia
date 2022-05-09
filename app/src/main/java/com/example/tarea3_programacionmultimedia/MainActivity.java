@@ -24,15 +24,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // establecemos el título de la barra superior
+
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Tarea Grupal");
+        actionBar.hide();
 
         Llamada = findViewById(R.id.BtnLlamada);
         Sms = findViewById(R.id.BtnSms);
         Mail = findViewById(R.id.BtnMail);
         Ajustes = findViewById(R.id.BtnAjustes);
-        Whatsappp = findViewById(R.id.btnEnviarWhatsapp);
+        Whatsappp = findViewById(R.id.btnWhatsapp);
 
 
         Sms.setOnClickListener(view -> {
