@@ -38,12 +38,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Llamada.setOnClickListener(view -> {
-            Intent intent = new Intent(this, CallActivity.class);
+            Intent intent = new Intent(this, llamada.class);
             startActivity(intent);
         });
 
         Mail.setOnClickListener(view -> {
-            Intent intent = new Intent(this, MailActivity.class);
+            Intent intent = new Intent(this, camara.class);
             startActivity(intent);
         });
 
