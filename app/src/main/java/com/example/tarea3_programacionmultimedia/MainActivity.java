@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
             intent.setPackage("com.whatsapp");
-            intent.putExtra(Intent.EXTRA_TEXT, "Estoy en peligro! Encuéntrame en esta localización");
+            intent.putExtra(Intent.EXTRA_TEXT, "Estoy en peligro! Ayúdame!!");
 
             if (intent.resolveActivity(getPackageManager()) == null) {
                 // Whatsapp no está instalado
