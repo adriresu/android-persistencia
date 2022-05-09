@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tarea3_programacionmultimedia">
-
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -17,11 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tarea3_ProgramacionMultimedia">
+
         <activity
             android:name=".CallActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MailActivity"
             android:exported="false" />
         <activity
             android:name=".PreferencesActivity"
@@ -30,7 +23,18 @@
             android:name=".SmsActivity"
             android:exported="false" />
         <activity
+            android:name=".camara"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".llamada"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
