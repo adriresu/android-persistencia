@@ -1,6 +1,7 @@
 package com.example.tarea3_programacionmultimedia;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -35,6 +36,9 @@ public class SmsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sms);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         List<String> missingPermissions = new ArrayList<String>();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {

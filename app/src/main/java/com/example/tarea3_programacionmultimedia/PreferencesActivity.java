@@ -1,5 +1,6 @@
 package com.example.tarea3_programacionmultimedia;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -17,6 +18,9 @@ public class PreferencesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+
         Pass = findViewById(R.id.PrefPass);
         NumTelf = findViewById(R.id.PrefPhone);
         NumMens = findViewById(R.id.PrefMensajes);
