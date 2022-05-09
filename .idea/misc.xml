@@ -6,11 +6,14 @@
         <entry key="..\:/Users/resua/AndroidStudioProjects/Tarea3_ProgramacionMultimedia/app/src/main/res/drawable/border.xml" value="0.2705" />
         <entry key="..\:/Users/resua/AndroidStudioProjects/Tarea3_ProgramacionMultimedia/app/src/main/res/drawable/divider.xml" value="0.2475" />
         <entry key="..\:/Users/resua/AndroidStudioProjects/Tarea3_ProgramacionMultimedia/app/src/main/res/drawable/fondo.xml" value="0.2705" />
+        <entry key="..\:/Users/resua/AndroidStudioProjects/Tarea3_ProgramacionMultimedia/app/src/main/res/layout/activity_call.xml" value="0.26806327490380505" />
         <entry key="..\:/Users/resua/AndroidStudioProjects/Tarea3_ProgramacionMultimedia/app/src/main/res/layout/activity_camara.xml" value="0.21758839528558477" />
         <entry key="..\:/Users/resua/AndroidStudioProjects/Tarea3_ProgramacionMultimedia/app/src/main/res/layout/activity_llamada.xml" value="0.21758839528558477" />
         <entry key="..\:/Users/resua/AndroidStudioProjects/Tarea3_ProgramacionMultimedia/app/src/main/res/layout/activity_login.xml" value="0.2778965369816161" />
+        <entry key="..\:/Users/resua/AndroidStudioProjects/Tarea3_ProgramacionMultimedia/app/src/main/res/layout/activity_mail.xml" value="0.26806327490380505" />
         <entry key="..\:/Users/resua/AndroidStudioProjects/Tarea3_ProgramacionMultimedia/app/src/main/res/layout/activity_main.xml" value="0.2857142857142857" />
         <entry key="..\:/Users/resua/AndroidStudioProjects/Tarea3_ProgramacionMultimedia/app/src/main/res/layout/activity_preferences.xml" value="0.26806327490380505" />
+        <entry key="..\:/Users/resua/AndroidStudioProjects/Tarea3_ProgramacionMultimedia/app/src/main/res/layout/activity_sms.xml" value="0.26806327490380505" />
       </map>
     </option>
   </component>

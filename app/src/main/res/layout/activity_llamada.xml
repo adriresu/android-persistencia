@@ -16,7 +16,7 @@
         android:fontFamily="@font/baloo_bhaijaan"
         android:text="Numero de Telefono"
         android:textAlignment="center"
-        android:textSize="48sp"
+        android:textSize="50sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="181dp"
         tools:layout_editor_absoluteY="72dp" />
@@ -31,17 +31,18 @@
         android:inputType="phone"
         android:text="654289897"
         android:textAlignment="center"
-        android:textSize="34sp" />
+        android:textSize="30sp" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="40dp"
+        android:layout_weight="0"
         android:contentDescription="TODO"
         app:srcCompat="@drawable/emergencycall2" />
 
