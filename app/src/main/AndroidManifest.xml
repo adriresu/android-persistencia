@@ -23,7 +23,8 @@
         android:theme="@style/Theme.Tarea3_ProgramacionMultimedia">
         <activity
             android:name=".VibracionActivity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -45,12 +46,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CallActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MailActivity"
-            android:exported="false"></activity>
-        <activity
             android:name=".PreferencesActivity"
             android:exported="false" />
         <activity
@@ -64,7 +59,8 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>
