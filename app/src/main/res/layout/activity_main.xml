@@ -4,61 +4,137 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="30dp"
     android:orientation="vertical"
-    android:gravity="center"
+    android:background="@color/orange"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:text="@string/emergencias_express"
+        android:textAlignment="center"
+        android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_marginBottom="5dp"
+        android:layout_height="100dp"
         android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@android:drawable/stat_sys_phone_call_forward"
+            tools:ignore="ImageContrastCheck"
+            android:contentDescription="@string/todo" />
+
         <Button
             android:id="@+id/BtnLlamada"
-            android:layout_width="130dp"
+            android:layout_width="307dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="50dp"
-            android:text="Llamada"
-             />
+            android:layout_marginTop="25dp"
+            android:text="@string/llamada"
+            app:layout_constraintBottom_toTopOf="@+id/BtnMail"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/sms"
+            android:contentDescription="@string/todo" />
+
+        <Button
+            android:id="@+id/BtnSms"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="@string/sms"
+            app:layout_constraintBottom_toTopOf="@+id/BtnAjustes"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/mail"
+            android:contentDescription="@string/todo" />
+
+        <Button
+            android:id="@+id/BtnMail"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="@string/mail"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ajustes"
+            android:contentDescription="@string/todo" />
 
         <Button
             android:id="@+id/BtnAjustes"
-            android:layout_width="130dp"
+            android:layout_width="307dp"
             android:layout_height="wrap_content"
-            android:text="Ajustes"
-            />
+            android:layout_marginTop="25dp"
+            android:text="@string/ajustes"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="TextContrastCheck" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:gravity="center_horizontal"
+        android:layout_height="100dp"
         android:orientation="horizontal">
-        <Button
-            android:id="@+id/BtnMail"
-            android:layout_width="130dp"
+
+        <ImageView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="50dp"
-            android:text="Mail"
-            />
+            android:layout_weight="1"
+            app:srcCompat="@drawable/whatsapp"
+            android:contentDescription="@string/todo" />
+
         <Button
-            android:id="@+id/BtnSms"
-            android:layout_width="130dp"
+            android:id="@+id/BtnWhatsapp"
+            android:layout_width="307dp"
             android:layout_height="wrap_content"
-            android:text="SMS"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_marginBottom="5dp"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnEnviarWhatsapp"
-            android:text="Enviar localización actual por WhatsApp" />
+            android:layout_marginTop="25dp"
+            android:text="Enviar localización actual por WhatsApp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="TextContrastCheck" />
     </LinearLayout>
 </LinearLayout>
